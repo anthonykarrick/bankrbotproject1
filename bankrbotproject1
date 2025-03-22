@@ -1,0 +1,19 @@
+# Simulated price checker and BankrBot command generator
+drb_price = 0.0003  # Pretend this is the current $DRB price in USD (you’d fetch this from a DEX API)
+buy_threshold = 0.00035  # Your buy threshold
+sell_threshold = 0.0007  # Your sell threshold
+
+# Check price and decide to buy or sell
+if drb_price < buy_threshold:
+    print(f"$DRB price is {drb_price} USD - below buy threshold! Triggering buy...")
+    command = "Hey @bankrbot, buy $5 worth of $DRB on Base"
+elif drb_price >= sell_threshold:
+    print(f"$DRB price is {drb_price} USD - at or above sell threshold! Triggering sell...")
+    command = "Hey @bankrbot, sell $5 worth of $DRB on Base"
+else:
+    print(f"$DRB price is {drb_price} USD - holding off for now (between thresholds).")
+    command = "No action needed."
+
+# Output the command you’d send to BankrBot (e.g., via X or terminal)
+print(command)
+
